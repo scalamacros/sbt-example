@@ -15,7 +15,7 @@ object MyBuild extends Build {
 
   lazy val root: Project = Project(
     "root",
-    file("."),
+    file("core"),
     settings = buildSettings
   ) aggregate(macros, core)
 
