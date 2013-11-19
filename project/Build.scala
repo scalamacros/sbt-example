@@ -6,6 +6,8 @@ object BuildSettings {
     organization := "org.scalamacros",
     version := "1.0.0",
     scalaVersion := "2.10.0",
+    resolvers += Resolver.sonatypeRepo("snapshots"),
+    resolvers += Resolver.sonatypeRepo("releases"),
     scalacOptions ++= Seq()
   )
 }
@@ -15,8 +17,9 @@ object MyBuild extends Build {
 
   lazy val root: Project = Project(
     "root",
-    file("core"),
-    settings = buildSettings
+    file("."),
+    settings = buildSettings ++ Seq(
+      run <<= run in Compile in core)
   ) aggregate(macros, core)
 
   lazy val macros: Project = Project(
