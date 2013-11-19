@@ -1,4 +1,4 @@
-An example SBT project which uses macros (Scala 2.10, SBT 0.12)
+An example SBT project which uses macros (Scala 2.10, SBT 0.13)
 
 To verify that everything works fine, do `sbt run`.
 
