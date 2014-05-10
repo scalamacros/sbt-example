@@ -1,7 +1,11 @@
-import language.experimental.macros
+import scala.language.experimental.macros
 import scala.reflect.macros.Context
 
 object Macros {
-  def impl(c: Context) = c.universe.reify(println("hello world!"))
-  def hello = macro impl
+  def impl(c: Context) = {
+    import c.universe._
+    q"""println("Hello World")"""
+  }
+
+  def hello: Unit = macro impl
 }
